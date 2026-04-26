@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Nasser Eldin",
+      "email": "nasser@example.com",
+      "password": "123456",
+      "phone": "01148062925",
+      "cart": []
+    }
+  ],
+  "products": [
+    {"id":1,"name":"Panadol Extra","price":"75 جنيه","image":"images/1.jfif"},
+    {"id":2,"name":"Vitamin C 1000","price":"120 جنيه","image":"images/2.jfif"},
+    {"id":3,"name":"Brufen 600","price":"60 جنيه","image":"images/3.jfif"},
+    {"id":4,"name":"Omega 3","price":"180 جنيه","image":"images/4.jfif"},
+    {"id":5,"name":"Antinal","price":"55 جنيه","image":"images/5.jfif"},
+    {"id":6,"name":"Cold & Flu","price":"95 جنيه","image":"images/6.jfif"}
+  ]
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>طلب روشتة</title>
+  <link rel="stylesheet" href="css/prescription.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <i class="fa-solid fa-prescription-bottle-medical"></i> صيدليتك
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">الرئيسية</a></li>
+    <li><a href="products.html">الأدوية</a></li>
+    <li><a href="offers.html">العروض</a></li>
+    <li><a href="prescription.html">طلب روشتة</a></li>
+    <li><a href="contact.html">تواصل معنا</a></li>
+  </ul>
+</nav>
+
+<section class="prescription-section">
+  <h2>نموذج طلب روشتة</h2>
+  <form id="prescriptionForm">
+    <div>
+      <label for="name">الاسم الكامل:</label>
+      <input type="text" id="name" required placeholder="اكتب اسمك هنا">
+    </div>
+    <div>
+      <label for="phone">رقم الهاتف:</label>
+      <input type="tel" id="phone" required placeholder="اكتب رقم هاتفك">
+    </div>
+    <div>
+      <label for="email">البريد الإلكتروني:</label>
+      <input type="email" id="email" placeholder="example@email.com">
+    </div>
+    <div>
+      <label for="file">رفع صورة الروشتة:</label>
+      <input type="file" id="file" accept="image/*,application/pdf" required>
+    </div>
+    <div>
+      <label for="notes">ملاحظات إضافية:</label>
+<textarea id="notes">ازيك يا فندم انا نصر الدين كنت محتاج استشارة منك يافندم</textarea>
+    </div>
+    <button type="submit">إرسال الطلب</button>
+  </form>
+</section>
+
+<footer>
+  © 2026 صيدليتك. كل الحقوق محفوظة.
+</footer>
+
+<script>
+const form = document.getElementById('prescriptionForm');
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+
+  // جلب البيانات من النموذج
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const email = document.getElementById('email').value;
+  const notes = document.getElementById('notes').value;
+  const fileInput = document.getElementById('file');
+
+  // رقم الواتساب للصيدلية
+  const whatsappNumber = '201148062925'; // 20 + رقم مصر بدون الصفر الأول
+
+  // رسالة جاهزة
+  let message = `مرحبا، أريد إرسال روشتة:\n`;
+  message += `الاسم: ${name}\n`;
+  message += `رقم الهاتف: ${phone}\n`;
+  if(email) message += `البريد الإلكتروني: ${email}\n`;
+  if(notes) message += `ملاحظات: ${notes}\n`;
+
+  // رابط الواتساب
+  let whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+  // تنبيه لو هناك ملف
+  if(fileInput.files.length > 0){
+    alert('سيتم إرسال رسالة عبر واتساب، يرجى إرفاق الروشتة يدوياً في المحادثة.');
+  }
+
+  // فتح الواتساب
+  window.open(whatsappURL, '_blank');
+
+  // تصفير النموذج
+  form.reset();
+});
+</script>
+
+
+</body>
+</html>

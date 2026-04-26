@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تواصل معنا</title>
+  <link rel="stylesheet" href="css/contact.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f7f7f7; }
+    .navbar { display:flex; justify-content:space-between; align-items:center; background:#0f766e; color:white; padding:15px 30px; position:sticky; top:0; z-index:1000; }
+    .navbar .logo i { margin-left:8px; }
+    .navbar a { color:white; text-decoration:none; margin-left:20px; }
+    .contact-section { max-width:900px; margin:50px auto; background:white; padding:30px; border-radius:10px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+    .contact-section h2 { text-align:center; margin-bottom:20px; color:#0f766e; }
+    .contact-form { display:flex; flex-direction:column; gap:15px; }
+    .contact-form input, .contact-form textarea { padding:12px; border:1px solid #ccc; border-radius:5px; font-size:16px; width:100%; }
+    .contact-form button { background:#0f766e; color:white; padding:12px; border:none; border-radius:5px; cursor:pointer; font-size:16px; transition:0.3s; }
+    .contact-form button:hover { background:#22c55e; }
+    .contact-info { margin-top:30px; display:flex; flex-direction:column; gap:10px; }
+    .contact-info p { font-size:16px; color:#333; }
+    .contact-info i { margin-left:10px; color:#0f766e; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">
+    <i class="fa-solid fa-prescription-bottle-medical"></i>
+    <span>صيدليتك</span>
+  </div>
+  <div class="nav-links">
+    <a href="index.html">الرئيسية</a>
+    <a href="products.html">الأدوية</a>
+    <a href="offers.html">العروض</a>
+    <a href="prescription.html">طلب روشتة</a>
+    <a href="contact.html">تواصل معنا</a>
+  </div>
+</nav>
+
+<section class="contact-section">
+  <h2>تواصل معنا</h2>
+  <form class="contact-form" id="contactForm">
+    <input type="text" id="name" placeholder="الاسم الكامل" required>
+    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+    <textarea id="message" rows="5" placeholder="ازيك يا فندم انا نصر الدين كنت محتاج استشارة منك يافندم"></textarea>
+    <button type="submit">إرسال عبر واتساب</button>
+  </form>
+
+  <div class="contact-info">
+    <p><i class="fa-solid fa-phone"></i> 01148062925</p>
+    <p><i class="fa-solid fa-envelope"></i> info@pharmacy.com</p>
+    <p><i class="fa-solid fa-map-marker-alt"></i> مصر، القاهرة</p>
+  </div>
+</section>
+
+<script>
+  const contactForm = document.getElementById('contactForm');
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    const whatsappNumber = '201148062925'; // رقم واتساب بدون + أو 0
+    const text = `الاسم: ${name}%0Aالبريد: ${email}%0Aالرسالة: ${message}`;
+    
+    window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+  });
+</script>
+
+</body>
+</html>
